@@ -4,15 +4,7 @@ title: About
 permalink: /about/
 ---
 
-This is the base Jekyll theme. You can find out more info about customizing your Jekyll theme, as well as basic Jekyll usage documentation at [jekyllrb.com](https://jekyllrb.com/)
+I am a recent graduate of Cornell University with a degree in Computer Science. In the CS world, I am mainly interested in Software Engineering, Architecture, Artificial Intelligence, and Security. I'm not sure what path this blog will take right now, but that will hopefully be established over time.
 
-You can find the source code for Minima at GitHub:
-[jekyll][jekyll-organization] /
-[minima](https://github.com/jekyll/minima)
-
-You can find the source code for Jekyll at GitHub:
-[jekyll][jekyll-organization] /
-[jekyll](https://github.com/jekyll/jekyll)
-
-
-[jekyll-organization]: https://github.com/jekyll
+GitHub: [afghanimah](https://github.com/afghanimah)
+LinkedIn: [abrahamghanimah](https://www.linkedin.com/in/abrahamghanimah/)
