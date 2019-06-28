@@ -24,7 +24,7 @@ These are the different “players” involved in the Abstract Factory:
 
 Here's an implementation of the pattern in C#:
 
-```
+{% highlight csharp %}
 // Interfaces
 
 interface IFactory {
@@ -35,9 +35,9 @@ interface IProduct {
 	string Name { get; }
 	void Hello();
 }
-```
+{% endhighlight %}
 
-```
+{% highlight csharp %}
 // Concrete Implementations
 
 class Factory : IFactory {
@@ -57,7 +57,7 @@ class Product : IProduct {
 	    Console.WriteLine(Hello);
     }
 }
-```
+{% endhighlight %}
 
 The user should only be able to interact with the classes as if they are an IFactory or IProduct; they only have access to what they need and don’t know about the underlying implementation.
 
@@ -65,7 +65,7 @@ The user invokes the factory’s create method to get an object that implements 
 
 This is how it would look like in a main method:
 
-```
+{% highlight csharp %}
 public static void Main() {
 	IFactory factory = new Factory();
 	
@@ -73,12 +73,12 @@ public static void Main() {
 	
 	product.Hello();
 }
-```
+{% endhighlight %}
 
-```
+{% highlight csharp %}
 // Expected Output
 Hello, I am a product.
-```
+{% endhighlight %}
 
 There are other ways to extend this pattern, such as having multiple product types from a single factory or 1 product per factory.  You could implement this with enums or multiple create methods for each product. Multiple methods is probably better because your if/switch statement will become rather long/unruly the more product enums you have.  The following implementation will probably be very similar to the Abstract Factory pattern, but we will go over that pattern later.  Let's see some examples of these approaches.
 
@@ -86,7 +86,7 @@ There are other ways to extend this pattern, such as having multiple product typ
 
 One way of implementing multiple products is by having a single Create method with an enum parameter.  So let's extend our previous, basic example:
 
-```
+{% highlight csharp %}
 // Enum and Concrete Product Implementations
 
 public enum ProductType { ProductA, ProductB }
@@ -114,9 +114,9 @@ public ProductB : IProduct {
 	    Console.WriteLine(Hello);
     }
 }
-```
+{% endhighlight %}
 
-```
+{% highlight csharp %}
 // Concrete Factory Implementation and Interface Update
 
 interface IFactory {
@@ -134,13 +134,13 @@ class Factory : IFactory {
 		return null;
     }
 }
-```
+{% endhighlight %}
 
 The user supplies an enum value to the factory's Create method to receive a product in return.  As before, the user can only interact with the methods defined in the interfaces.
 
 The main method will remain similar along with the expected output:
 
-```
+{% highlight csharp %}
 public static void Main() {
 	IFactory factory = new Factory();
 	
@@ -150,19 +150,19 @@ public static void Main() {
 	productA.Hello();
 	productB.Hello();
 }
-```
+{% endhighlight %}
 
-```
+{% highlight csharp %}
 // Expected Output
 Hello, I am product A.
 Hello, I am product B.
-```
+{% endhighlight %}
 
 ### Multiple Products in a Single Factory - Method Approach
 
 The difference from this approach and the previous one is using multiple methods instead of a single method.  The output is the same.
 
-```
+{% highlight csharp %}
 // Updated Interface and Concrete Factory Implementation
 
 interface IFactory {
@@ -177,9 +177,9 @@ class Factory : IFactory {
 	public IProduct CreateProductA() => new ProductA();
 	public IProduct CreateProductB() => new ProductB();
 }
-```
+{% endhighlight %}
 
-```
+{% highlight csharp %}
 public static void Main() {
 	IFactory factory = new Factory();
 	
@@ -189,13 +189,13 @@ public static void Main() {
 	productA.Hello();
 	productB.Hello();
 }
-```
+{% endhighlight %}
 
 ### One Factory for Each Product
 
 The last way we will describe here is using a factory for each product.  Each factory will have a create method that returns 1 implementation of IProduct.  This will require extra code as shown below, but the output is the same.  IFactory will be the original version consisting of a single Create method with no parameters.
 
-```
+{% highlight csharp %}
 // Two Concrete Factory Implementations
 
 class FactoryA : IFactory {
@@ -209,9 +209,9 @@ class FactoryB : IFactory {
 		return new ProductB();
     }
 }
-```
+{% endhighlight %}
 
-```
+{% highlight csharp %}
 public static void Main() {
 	IFactory factoryA = new FactoryA();
 	IFactory factoryB = new FactoryB();
@@ -222,6 +222,6 @@ public static void Main() {
 	productA.Hello();
 	productB.Hello();
 }
-```
+{% endhighlight %}
 
 Note that in these examples we were all explicitly choosing what version of Product we wanted, but that doesn't have to be the case all the time.  A factory could randomly give the user 1 product from a selection of 10, for example.
